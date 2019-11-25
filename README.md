@@ -1,2 +1,2 @@
-# directional-hover
-Add a directional css hover effect
+# pixel
+Pixel javascript plugin for hover effect.
