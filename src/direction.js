@@ -1,54 +1,56 @@
 import "./direction.scss"
 const DEFAULT_DIR = -1
-class Direction {
+export class Direction {
 	constructor ( settings ) {
 		this.classes = [ '__top', '__right', '__bottom', '__left' ]
 		this.onUpdate = typeof settings.onUpdate === "function" ? settings.onUpdate : null
-		this.$el = settings.el instanceof HTMLElement ? settings.el : null
+		this.$els = [...settings.$els]
 		this.dir = DEFAULT_DIR
+		this.initClass()
 		this.bindEvent()
 	}
+	initClass = () => this.$els.map( $el => $el.classList.add("__direction_item") )
 	bindEvent () {
-		this.remove = this.out.bind( this )
-		this.$el.addEventListener('mouseleave', this.remove)
-		this.move = this.updateDir.bind( this )
-		this.$el.addEventListener('mousemove', this.move)
+		this.$els.map( $el => {
+			$el.addEventListener('mouseleave', this.out)
+			$el.addEventListener('mousemove', this.updateDir)
+		})
 	}
-	clearEvent () {
-		this.$el.removeEventListener('mouseleave', this.remove)
-		this.$el.removeEventListener('mousemove', this.move)
+	unbindEvent () {
+		this.$els.map( $el => {
+			$el.removeEventListener('mouseleave', this.out)
+			$el.removeEventListener('mousemove', this.updateDir)
+		})
 	}
-	updateDir ( ev ) {
-		const d = this.getDir( ev )
+	updateDir = e => {
+		const d = this.getDir( e )
 		if( this.dir === d ) return
 		this.dir = d
-		this.updateClass()
-		if( !!this.onUpdate ) this.onUpdate()
+		this.updateClass( e )
+		if( !!this.onUpdate ) this.onUpdate( e )
 	}
-	getDir (e) {
-		var pos = this.$el.getBoundingClientRect()
-		var cx  = pos.left + ( this.$el.width / 2 )
-		var cy  = pos.top  + ( this.$el.height / 2 )
-		var x	= ( e.pageX - cx ) * ( this.$el.width > this.$el.height ? ( this.$el.height / this.$el.width ) : 1 )
-		var y   = -( e.pageY - cy ) * ( this.$el.height > this.$el.width ? ( this.$el.width / this.$el.height ) : 1 )
+	getDir ( e ) {
+		const $el = e.currentTarget
+		var pos = $el.getBoundingClientRect()
+		var cx  = pos.left + ( pos.width / 2 )
+		var cy  = pos.top  + ( pos.height / 2 )
+		var x	= ( e.pageX - cx ) * ( pos.width > pos.height ? ( pos.height / pos.width ) : 1 )
+		var y   = -( e.pageY - cy ) * ( pos.height > pos.width ? ( pos.width / pos.height ) : 1 )
 		var d 	= Math.round( ( (Math.atan2(x,y) + Math.PI) / (Math.PI/2)) + 2 ) % 4
 		return d
 	}
 	get currentClass () { return this.classes[ this.dir ] }
-	updateClass () {
-		this.removeClass()
-		if( !!this.currentClass )
-			this.$el.parentNode.classList.add( this.currentClass )
+	updateClass ( e ) {
+		this.removeClass( e )
+		if( !!this.currentClass ) e.currentTarget.classList.add( this.currentClass )
 	}
-	removeClass () {
-		this.classes.forEach( c => this.$el.parentNode.classList.remove( c ) )
+	removeClass ( e ) {
+		this.classes.forEach( c => e.currentTarget.classList.remove( c ) )
 	}
 
-	out () {
+	out = e => {
 		this.dir = DEFAULT_DIR
-		this.removeClass()
+		this.removeClass(e)
 	}
 }
-
-export { Direction }
 export default Direction
