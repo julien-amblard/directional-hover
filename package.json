@@ -10,8 +10,10 @@
 		"prepublishOnly": "npm run build"
 	},
 	"keywords": [
-		"pixel",
-		"canvas"
+		"css",
+		"directional",
+		"hover",
+		"effect"
 	],
 	"repository": {
 		"type": "git",
