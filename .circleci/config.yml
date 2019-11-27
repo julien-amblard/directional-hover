@@ -6,7 +6,7 @@ defaults: &defaults
     - image: circleci/node:12.5.0
 
 jobs:
-  tests:
+  build:
     <<: *defaults
     steps:
       - checkout
@@ -19,10 +19,6 @@ jobs:
       - run:
           name: Install dependencies
           command: yarn install --no-lockfile
-
-      - run:
-          name: Run tests
-          command: yarn test
 
       - run:
           name: Run build
@@ -81,7 +77,7 @@ workflows:
 
   test-publish:
     jobs:
-      - tests:
+      - build:
           filters:
             tags:
               only: /^v.*/
@@ -89,7 +85,7 @@ workflows:
               ignore: /.*/
       - publish:
           requires:
-            - tests
+            - build
           filters:
             tags:
               only: /^v.*/
