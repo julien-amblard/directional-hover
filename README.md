@@ -20,10 +20,6 @@ import Direction from "directional-hover"
 ```
 
 <br/>
-<br/>
-<br/>
-
-
 
 
 ##### Quick use
