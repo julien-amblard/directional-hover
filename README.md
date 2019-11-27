@@ -1,11 +1,18 @@
 # Directional Hover Effect
 
 [![CircleCI Status](https://circleci.com/gh/Julien-Amblard/directional-hover.svg?style=shield&circle-token=:circle-token)](https://circleci.com/gh/Julien-Amblard/directional-hover)
+
+<br />
+
 Add a directional css hover effect
 
 <br />
 
-## Installation
+### Live example [here](https://codepen.io/Capse/pen/jOOgVJq) 
+
+<br />
+
+### Installation
 
 ```bash
 $ npm install directional-hover
@@ -14,7 +21,7 @@ $ yarn add directional-hover
 ```
 <br/>
 
-## Importing
+### Importing
 ```js
 import Direction from "directional-hover"
 ```
@@ -22,7 +29,7 @@ import Direction from "directional-hover"
 <br/>
 
 
-##### Quick use
+### Quick use
 ```html
 <div class="thumbs">
   <div class="item">
