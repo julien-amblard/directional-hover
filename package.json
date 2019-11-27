@@ -1,6 +1,6 @@
 {
 	"name": "directional-hover",
-	"description": "pixel effect",
+	"description": "Add a directional css hover effect",
 	"main": "dist/direction-hover.min.js",
 	"scripts": {
 		"test": "yarn jest --config=./tests/jest.config.js --verbose",
