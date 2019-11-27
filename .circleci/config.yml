@@ -68,14 +68,14 @@ jobs:
 
 workflows:
   version: 2
-  tests:
+  build:
     jobs:
-      - tests:
+      - build:
           filters:
             tags:
               ignore: /.*/
 
-  test-publish:
+  build-publish:
     jobs:
       - build:
           filters:
