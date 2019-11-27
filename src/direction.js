@@ -29,7 +29,7 @@ export class Direction {
 		this.updateClass( e )
 		if( !!this.onUpdate ) this.onUpdate( e )
 	}
-	getDir ( e ) {
+	getDir (e) {
 		const $el = e.currentTarget
 		var pos = $el.getBoundingClientRect()
 		var cx  = pos.left + ( pos.width / 2 )
