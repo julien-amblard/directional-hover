@@ -3,7 +3,7 @@
 [![CircleCI Status](https://circleci.com/gh/Julien-Amblard/directional-hover.svg?style=shield&circle-token=:circle-token)](https://circleci.com/gh/Julien-Amblard/directional-hover)
 [![npm](https://img.shields.io/npm/dt/directional-hover.svg?style=flat-square)](https://www.npmjs.com/package/directional-hover)
 [![npm](https://img.shields.io/npm/v/directional-hover.svg?style=flat-square)](https://www.npmjs.com/package/directional-hover)
-[![npm](https://img.shields.io/npm/l/directional-hover.svg?style=flat-square)](https://github.com/CassetteRocks/directional-hover/blob/master/LICENSE)
+[![npm](https://img.shields.io/npm/l/directional-hover.svg?style=flat-square)](https://github.com/Julien-Amblard/directional-hover/blob/master/LICENSE)
 
 <br />
 
