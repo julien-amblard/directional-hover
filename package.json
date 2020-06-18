@@ -17,10 +17,10 @@
 	],
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/Julien-Amblard/pixel.git"
+		"url": "https://github.com/sl-julienamblard/directional-hover.git"
 	},
 	"bugs": {
-		"url": "https://github.com/Julien-Amblard/pixel/issues"
+		"url": "https://github.com/sl-julienamblard/directional-hover/issues"
 	},
 	"author": "Julien Amblard <amblard.julien@gmail.com>",
 	"license": "MIT",
